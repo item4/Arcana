@@ -17,7 +17,7 @@ StartupEvents.postInit(() => {
     let $ApplicableResult = Java.loadClass("net.neoforged.neoforge.event.entity.living.MobEffectEvent$Applicable$Result")
     let $PlayerLoggedIn = Java.loadClass("net.neoforged.neoforge.event.entity.player.PlayerEvent$PlayerLoggedInEvent")
 
-    let blockedEffects = []
+    let blockedIds = []
     let blockedHolders = []
     let i = 0
     let id = null
@@ -31,7 +31,7 @@ StartupEvents.postInit(() => {
             console.warn("[arcana] blocked effect " + ARCANA_BLOCKED_EFFECTS[i] + " is not registered, skipping")
             continue
         }
-        blockedEffects.push(effect)
+        blockedIds.push(ARCANA_BLOCKED_EFFECTS[i])
         holder = $BuiltInRegistries.MOB_EFFECT.getHolder(id).orElse(null)
         if (holder == null) {
             console.warn("[arcana] no holder for " + ARCANA_BLOCKED_EFFECTS[i] + ", existing carriers will not be cleared")
@@ -40,13 +40,13 @@ StartupEvents.postInit(() => {
         }
     }
 
-    if (blockedEffects.length == 0) return
+    if (blockedIds.length == 0) return
 
     $NeoForge.EVENT_BUS.addListener($EventPriority.HIGHEST, false, $Applicable, (event) => {
-        let value = event.getEffectInstance().getEffect().value()
+        let name = event.getEffectInstance().getEffect().getRegisteredName()
         let j = 0
-        for (j = 0; j < blockedEffects.length; j++) {
-            if (blockedEffects[j].equals(value)) {
+        for (j = 0; j < blockedIds.length; j++) {
+            if (blockedIds[j] == name) {
                 event.setResult($ApplicableResult.DO_NOT_APPLY)
                 return
             }
@@ -55,7 +55,7 @@ StartupEvents.postInit(() => {
 
     if (blockedHolders.length == 0) return
 
-    $NeoForge.EVENT_BUS.addListener($PlayerLoggedIn, (event) => {
+    $NeoForge.EVENT_BUS.addListener($EventPriority.NORMAL, false, $PlayerLoggedIn, (event) => {
         let player = event.getEntity()
         let j = 0
         for (j = 0; j < blockedHolders.length; j++) {
@@ -67,5 +67,5 @@ StartupEvents.postInit(() => {
         }
     })
 
-    console.info("[arcana] blocking " + blockedEffects.length + " mob effect(s)")
+    console.info("[arcana] blocking " + blockedIds.length + " mob effect(s)")
 })
