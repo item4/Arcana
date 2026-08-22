@@ -42,6 +42,27 @@ ServerEvents.recipes(ATM => {
         type: "create:mechanical_crafting",
         accept_mirrored: false,
         pattern: [
+            '    S    ',
+            '   SSS   ',
+            'SSSSSSSSS',
+            'SSSSSSSSS',
+            ' SSSPSSS ',
+            '  SSSSS  ',
+            ' SSSSSSS ',
+            'SSSS SSSS',
+            'SSS   SSS'
+        ],
+        key: {
+            S: Ingredient.of('allthetweaks:atm_star_shard').toJson(),
+            P: Ingredient.of('allthetweaks:patrick_star').toJson()
+        },
+        result: Item.of('allthetweaks:atm_star').toJson()
+    }).id('kubejs:atm_star_from_shards')
+
+    ATM.custom({
+        type: "create:mechanical_crafting",
+        accept_mirrored: false,
+        pattern: [
             '    B    ',
             '   BCA   ',
             'BBBGCABBB',
