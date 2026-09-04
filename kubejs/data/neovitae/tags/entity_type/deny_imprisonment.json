@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#c:bosses",
+		"#c:capturing_not_supported",
+		"#ars_nouveau:familiar",
+		"minecraft:warden",
+		"minecraft:elder_guardian"
+	]
+}
