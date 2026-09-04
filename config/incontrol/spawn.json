@@ -1,27 +1,52 @@
 [
     {
         "mob": "minecraft:zombie",
-        "mincount": 30,
+        "mincount": {
+          "amount": 10,
+          "perplayer": true
+        },
         "result": "deny"
       },
       {
         "mob": "minecraft:bat",
-        "mincount": 30,
+        "mincount": {
+          "amount": 5,
+          "perplayer": true
+        },
         "result": "deny"
       },
       {
         "mob": "minecraft:skeleton",
-        "mincount": 30,
+        "mincount": {
+          "amount": 10,
+          "perplayer": true
+        },
         "result": "deny"
       },
       {
         "mob": "artifacts:mimic",
-        "mincount": 10,
+        "mincount": {
+          "amount": 4,
+          "perplayer": true
+        },
         "result": "deny"
       },
       {
         "mob": "vampirism:hunter",
-        "mincount": 20,
+        "mincount": {
+          "amount": 12,
+          "perplayer": true,
+          "mob": ["vampirism:hunter", "vampirism:hunter_imob"]
+        },
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:hunter_imob",
+        "mincount": {
+          "amount": 12,
+          "perplayer": true,
+          "mob": ["vampirism:hunter", "vampirism:hunter_imob"]
+        },
         "result": "deny"
       },  
       {
@@ -51,6 +76,62 @@
           "amount": 30,
           "hostile": true,
           "perplayer": true
+        },
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:vampire",
+        "random": 0.7,
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:vampire_imob",
+        "random": 0.7,
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:advanced_vampire",
+        "random": 0.7,
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:advanced_vampire_imob",
+        "random": 0.7,
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:vampire",
+        "mincount": {
+          "amount": 8,
+          "perplayer": true,
+          "mob": ["vampirism:vampire", "vampirism:vampire_imob"]
+        },
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:vampire_imob",
+        "mincount": {
+          "amount": 8,
+          "perplayer": true,
+          "mob": ["vampirism:vampire", "vampirism:vampire_imob"]
+        },
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:advanced_vampire",
+        "mincount": {
+          "amount": 4,
+          "perplayer": true,
+          "mob": ["vampirism:advanced_vampire", "vampirism:advanced_vampire_imob"]
+        },
+        "result": "deny"
+      },
+      {
+        "mob": "vampirism:advanced_vampire_imob",
+        "mincount": {
+          "amount": 4,
+          "perplayer": true,
+          "mob": ["vampirism:advanced_vampire", "vampirism:advanced_vampire_imob"]
         },
         "result": "deny"
       }
