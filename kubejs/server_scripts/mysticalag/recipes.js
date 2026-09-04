@@ -15,13 +15,16 @@ ServerEvents.recipes(allthemods => {
         I: 'primalmagick:moonwood_sapling'
     }).id('allthemods:kjs/magical_soil')
 
-    function essenceCircle(result, essenceType) {
-        allthemods.shaped(result, ['aaa', 'a a', 'aaa'], { a: `mysticalagriculture:${essenceType}_essence` }).id(`kubejs:mysticalagriculture/${essenceType}_essence_crafting`)
+    function essenceCircle(result, essenceType, count) {
+        allthemods.shaped(Item.of(result, count || 1), ['aaa', 'a a', 'aaa'], { a: `mysticalagriculture:${essenceType}_essence` }).id(`kubejs:mysticalagriculture/${essenceType}_essence_crafting`)
     }
 
     essenceCircle('allthemodium:allthemodium_nugget', 'allthemodium')
     essenceCircle('allthemodium:vibranium_nugget', 'vibranium')
     essenceCircle('allthemodium:unobtainium_nugget', 'unobtainium')
+    essenceCircle('silentgear:azure_silver_ingot', 'azure_silver')
+    essenceCircle('silentgear:crimson_iron_ingot', 'crimson_iron')
+    essenceCircle('forbidden_arcanus:darkstone', 'darkstone', 16)
 })
 
 /*
