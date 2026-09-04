@@ -43,8 +43,6 @@ ServerEvents.tags(`entity_type`, ATM => {
         `apothic_spawners:blacklisted_from_spawners`,
         `ars_additions:source_spawner_denylist`,
         `ars_elemental:charm_blacklist`,
-        `ars_nouveau:drygmy_blacklist`,
-        `ars_nouveau:jar_blacklist`,
         `enchanted:taglock_blacklist`,
         `forbidden_arcanus:quantum_catcher_blacklisted`,
         `forbidden_arcanus:test_tube_blacklisted`,
@@ -57,7 +55,6 @@ ServerEvents.tags(`entity_type`, ATM => {
         `pastel:spawner_manipulation_blacklisted`,
         `pastel:staff_of_remembrance_blacklisted`,
         `pneumaticcraft:vacuum_trap_blacklisted`,
-        `productivebees:bee_encase_blacklist`,
         `tombstone:unhandled_tamable`
     ]
 
@@ -65,6 +62,10 @@ ServerEvents.tags(`entity_type`, ATM => {
     for (i = 0; i < jankConsumers.length; i++) {
         ATM.add(jankConsumers[i], `#allthemods:jank_blacklist`)
     }
+
+    ATM.add(`ars_nouveau:jar_blacklist`, `the_bumblezone:bee_queen`)
+    ATM.add(`productivebees:bee_encase_blacklist`, `the_bumblezone:bee_queen`)
+    ATM.add(`ars_nouveau:drygmy_blacklist`, `#ars_nouveau:jar_blacklist`)
 
     // Removes tag entries whose target is never registered. A missing required entry makes
     // vanilla drop the whole tag and every tag referencing it.
