@@ -1,0 +1,6 @@
+{
+	"type": "neoforge:remove_features",
+	"biomes": "biomesoplenty:end_corruption",
+	"features": "biomesoplenty:anomaly",
+	"steps": "local_modifications"
+}
